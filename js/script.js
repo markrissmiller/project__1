@@ -209,3 +209,137 @@ function dragDrop(){
 function dragEnd() {
     
 }
+// GAME LOGIC 
+
+
+let isGameOver = false;
+let currentPlayer = 'user';
+
+
+let destroyerCount = 0;
+let submarineCount = 0;
+let cruiserCount = 0;
+let battleshipCount = 0;
+let carrierCount = 0;
+
+let cpuDestroyerCount = 0;
+let cpuSubmarineCount = 0;
+let cpuCruiserCount = 0;
+let cpuBattleshipCount = 0;
+let cpuCarrierCount = 0;
+
+
+
+function revealSquare(square){
+    if(!square.classList.contains('boom')){
+        if(square.classList.contains('destroyer')) destroyerCount++;
+        if(square.classList.contains('submarine')) submarineCount++;
+        if(square.classList.contains('cruiser')) cruiserCount++;
+        if(square.classList.contains('battleship')) battleshipCount++;
+        if(square.classList.contains('carrier')) carrierCount++;
+    }
+    
+    if(square.classList.contains('taken')){
+        square.classList.add('boom');
+    }else {
+        square.classList.add('miss');
+    }
+    
+    currentPlayer = 'computer';
+    checkWins();
+    playGame();
+}
+
+
+
+function computerGo() {
+    const random = Math.floor(Math.random() * userSquares.length);
+    if (!userSquares[random].classList.contains('boom')){
+        userSquares[random].classList.add('boom')
+        if(userSquares[random].classList.contains('destroyer')) cpuDestroyerCount++;
+        if(userSquares[random].classList.contains('submarine')) cpuSubmarineCount++;
+        if(userSquares[random].classList.contains('cruiser')) cpuCruiserCount++;
+        if(userSquares[random].classList.contains('battleship')) cpuBattleshipCount++;
+        if(userSquares[random].classList.contains('carrier')) cpuCarrierCount++;
+    }else {
+        computerGo();
+    }
+    currentPlayer = 'user';
+    turnDisplay.innerHTML = 'Your Turn';
+    checkWins();
+}
+
+
+function checkWins() {
+    if(destroyerCount === 2 ){
+        infoDisplay.innerHTML = 'You sunk the computers destroyer';
+        destroyerCount = 10;
+    }
+    if(submarineCount === 3 ){
+        infoDisplay.innerHTML = 'You sunk the computers submarine';
+        submarineCount = 10;
+    }
+    if(cruiserCount === 3 ){
+        infoDisplay.innerHTML = 'You sunk the computers cruiser';
+        cruiserCount = 10;
+    }
+    if(battleshipCount === 4 ){
+        infoDisplay.innerHTML = 'You sunk the computers battleship';
+        battleshipCount = 10;
+    }
+    if(carrierCount === 5 ){
+        infoDisplay.innerHTML = 'The computer sunk your carrier';
+        carrierCount = 10;
+    }
+    if(cpuDestroyerCount === 2 ){
+        infoDisplay.innerHTML = 'The computer sunk your destroyer';
+        cpuDestroyerCount = 10;
+    }
+    if(cpuSubmarineCount === 3 ){
+        infoDisplay.innerHTML = 'The computer sunk your submarine';
+        cpuSubmarineCount = 10;
+    }
+    if(cpuCruiserCount === 3 ){
+        infoDisplay.innerHTML = 'The computer sunk your cruiser';
+        cpuCruiserCount = 10;
+    }
+    if(cpuBattleshipCount === 4 ){
+        infoDisplay.innerHTML = 'The computer sunk your battleship';
+        cpuBattleshipCount = 10;
+    }
+    if(cpuCarrierCount === 5 ){
+        infoDisplay.innerHTML = 'The computer sunk your carrier';
+        cpuCarrierCount = 10;
+    }
+    if(destroyerCount + submarineCount + cruiserCount + battleshipCount + carrierCount === 50){
+        infoDisplay.innerHTML = 'YOU WIN';
+        endGame();
+    }
+    if(cpuDestroyerCount + cpuSubmarineCount + cpuCruiserCount + cpuBattleshipCount + cpuCarrierCount === 50){
+        infoDisplay.innerHTML = 'COMPUTER WINS';
+        endGame();
+    }
+}
+
+function endGame() {
+    isGameOver = true;
+    startButton.removeEventListener('click', playGame)
+}
+
+
+function playGame() {
+    if(isGameOver) return;
+    if (currentPlayer === 'user'){
+        turnDisplay.innerHTML = 'Your Turn';
+        computerSquares.forEach(square => square.addEventListener('click',function(e) {
+            revealSquare(square)
+        } ))
+    }
+    if (currentPlayer === 'computer'){
+        turnDisplay.innerHTML = 'Computers Turn'
+        setTimeout (computerGo, 1000);
+    }
+    checkWins();
+}
+
+startButton.addEventListener('click', playGame);
