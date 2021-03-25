@@ -17,6 +17,7 @@ const startButton = document.getElementById('start');
 const rotateButton = document.getElementById('rotate');
 const turnDisplay = document.getElementById('whose-turn');
 const infoDisplay = document.getElementById('info');
+const setUpButtons = document.getElementById('setup-buttons');
 
 //PLAYER ARRAYS
 const userSquares = [];
@@ -194,12 +195,18 @@ function dragDrop(){
 
     if (isHorizontal && !newNotAllowedHorizontal.includes(shipLastId)){
         for (let i = 0; i < draggedShipLength; i++){
-            userSquares[parseInt(this.dataset.id) -selectedShipIndex + i].classList.add('taken', shipClass);
+            let directionClass;
+            if(i === 0 ) directionClass = 'start';
+            if(i === draggedShipLength - 1) directionClass = 'end';
+            userSquares[parseInt(this.dataset.id) -selectedShipIndex + i].classList.add('taken', shipClass, 'horizontal', directionClass);
         } 
             
     }else if(!isHorizontal && !newNotAllowedVerticle.includes(shipLastId)){
         for(let i = 0; i< draggedShipLength; i++){
-            userSquares[parseInt(this.dataset.id) - selectedShipIndex + 10 * i].classList.add('taken', shipClass)
+            let directionClass;
+            if(i === 0 ) directionClass = 'start';
+            if(i === draggedShipLength - 1) directionClass = 'end';
+            userSquares[parseInt(this.dataset.id) - selectedShipIndex + 10 * i].classList.add('taken', shipClass, 'verticle', directionClass)
         }
     } else return
 
@@ -254,8 +261,8 @@ function revealSquare(square){
 
 function computerGo() {
     const random = Math.floor(Math.random() * userSquares.length);
-    if (!userSquares[random].classList.contains('boom')){
-        userSquares[random].classList.add('boom')
+    if (!userSquares[random].classList.contains('boom') && !userSquares[random].classList.contains('miss')){
+        // userSquares[random].classList.add('boom')
         if(userSquares[random].classList.contains('destroyer')) cpuDestroyerCount++;
         if(userSquares[random].classList.contains('submarine')) cpuSubmarineCount++;
         if(userSquares[random].classList.contains('cruiser')) cpuCruiserCount++;
@@ -264,6 +271,12 @@ function computerGo() {
     }else {
         computerGo();
     }
+    if(userSquares[random].classList.contains('taken')){
+        userSquares[random].classList.add('boom');
+    }else {
+        userSquares[random].classList.add('miss');
+    }
+
     currentPlayer = 'user';
     turnDisplay.innerHTML = 'Your Turn';
     checkWins();
@@ -288,7 +301,7 @@ function checkWins() {
         battleshipCount = 10;
     }
     if(carrierCount === 5 ){
-        infoDisplay.innerHTML = 'The computer sunk your carrier';
+        infoDisplay.innerHTML = 'You sunk the computers carrier';
         carrierCount = 10;
     }
     if(cpuDestroyerCount === 2 ){
@@ -328,6 +341,7 @@ function endGame() {
 
 
 function playGame() {
+    setUpButtons.style.display = 'none';
     if(isGameOver) return;
     if (currentPlayer === 'user'){
         turnDisplay.innerHTML = 'Your Turn';
