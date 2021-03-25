@@ -56,7 +56,8 @@ body{
   background-image: url('../images/radar2.jpeg') ;
   height: 100vh;
   background-size: 100%;
-  background-position:-6px ;
+  background-position:-6px;
+  /* display: flex; */
   
 }
 
@@ -73,11 +74,11 @@ body{
 }
 
 .user-board{
-  margin-right: 82px;
+  margin-right: 83px;
 }
 
 .computer-board{
-  margin-left: 82px;
+  margin-left: 83px;
 }
 
 .grid-user{
@@ -101,7 +102,7 @@ body{
 }
 
 .grid-computer > .taken{
-  background-color: rgb(72, 175, 235)/*imortant!*/;
+  background-color: rgb(72, 175, 235) !important;
 
 }
 
@@ -123,8 +124,8 @@ body{
 }
 
 .btn{
-  background-color: rgb( 56, 115, 75);
-  padding: .5em 1em;
+  background-color: #5ef770;
+  /* padding: .5em 1em; */
   border-radius: 2em;
   color: black;
   font-size: inherit;
@@ -132,7 +133,8 @@ body{
 }
 
 .btn:hover, .btn:focus{
-  background-color: #5ef770;
+  
+  background-color: rgb( 56, 115, 75);
   
 }
 
@@ -168,6 +170,39 @@ body{
   justify-content: center;
   align-items: flex-end;
   margin-top: 20px;
+}
+
+.key{
+  display: flex;
+  flex-direction: column;
+  /* background-color: darkolivegreen; */
+  position: absolute;
+  top: 5;
+  left: 1;
+  text-align: center;
+  border: 1px solid #5ef770;
+  align-items: center;
+  padding: 3px;
+}
+
+span{
+  color: white;
+  text-shadow: 0px 0px 14px #5ef770;
+
+}
+
+.hit-example{
+  height: 10px;
+  width: 10px;
+  border-radius: 100%;
+  background-color: red;
+}
+
+.miss-example{
+  height: 10px;
+  width: 10px;
+  border-radius: 100%;
+  background-color: white;
 }
 
 /* SHIPS */
