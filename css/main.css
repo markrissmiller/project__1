@@ -162,6 +162,13 @@ body{
   text-shadow: 0px 0px 14px #5ef770;
 }
 
+.reset-button{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: 20px;
+}
+
 /* SHIPS */
 
 

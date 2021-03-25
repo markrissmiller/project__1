@@ -18,6 +18,7 @@ const rotateButton = document.getElementById('rotate');
 const turnDisplay = document.getElementById('whose-turn');
 const infoDisplay = document.getElementById('info');
 const setUpButtons = document.getElementById('setup-buttons');
+const resetButton = document.getElementById('reset');
 
 //PLAYER ARRAYS
 const userSquares = [];
@@ -357,3 +358,7 @@ function playGame() {
 }
 
 startButton.addEventListener('click', playGame);
+
+//reset
+
+resetButton.addEventListener('click', () => location.reload());
