@@ -52,10 +52,27 @@
   box-sizing: border-box;
 }
 
+body{
+  background-image: url('../images/radar2.jpeg') ;
+  /* background: rgb(2,0,36);
+  background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(14,255,0,1) 61%, rgba(9,9,121,1) 99%); */
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: 100%;
+ 
+}
+
 .container{
   display: flex;
   justify-content: center;
   width: 100%;
+}
+
+.grid-container{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 100px;
 }
 
 
@@ -66,6 +83,7 @@
   flex-wrap: wrap;
   background-color: rgb(72, 175, 235);
   margin: 20px;
+  margin-right: 200PX;
 }
 
 .grid-computer{
@@ -75,6 +93,7 @@
   flex-wrap: wrap;
   background-color: rgb(72, 175, 235);
   margin: 20px;
+  margin-left: 20PX;
 }
 
 .grid-computer > .taken{
@@ -89,14 +108,14 @@
 .grid div{
   width: 40px;
   height: 40px;
-  border: 1px solid rgb(255, 255, 255, .2) ;
+  border: 1px solid rgba(104, 250, 75, 0.521) ;
 }
 
 .btn{
-  background-color: darkolivegreen;
+  background-color: rgb(188, 238, 102);
   padding: .5em 1em;
-  border-radius: .2em;
-  color: bisque;
+  border-radius: 2em;
+  color: rgb(177, 158, 136);
   font-size: inherit;
 }
 
@@ -112,6 +131,7 @@
 
 .info-text{
   margin: 1rem;
+  color: white;
 }
 
 /* SHIPS */
