@@ -19,6 +19,7 @@ const turnDisplay = document.getElementById('whose-turn');
 const infoDisplay = document.getElementById('info');
 const setUpButtons = document.getElementById('setup-buttons');
 const resetButton = document.getElementById('reset');
+const shipsId = document.getElementById('shipID')
 
 //PLAYER ARRAYS
 const userSquares = [];
@@ -279,58 +280,61 @@ function computerGo() {
     }
 
     currentPlayer = 'user';
-    turnDisplay.innerHTML = 'Your Turn';
+    turnDisplay.innerHTML = 'Your Turn <br> Choose A Cooridinate To Attack In Enemy Waters';
     checkWins();
 }
 
 
 function checkWins() {
     if(destroyerCount === 2 ){
-        infoDisplay.innerHTML = 'You\'ve sunk the computers destroyer';
+        infoDisplay.innerHTML = 'You\'ve sunk the computers Destroyer';
         destroyerCount = 10;
     }
     if(submarineCount === 3 ){
-        infoDisplay.innerHTML = 'You\'ve sunk the computers submarine';
+        infoDisplay.innerHTML = 'You\'ve sunk the computers Submarine';
         submarineCount = 10;
     }
     if(cruiserCount === 3 ){
-        infoDisplay.innerHTML = 'You\'ve sunk the computers cruiser';
+        infoDisplay.innerHTML = 'You\'ve sunk the computers Cruiser';
         cruiserCount = 10;
     }
     if(battleshipCount === 4 ){
-        infoDisplay.innerHTML = 'You\'ve sunk the computers battleship';
+        infoDisplay.innerHTML = 'You\'ve sunk the computers Battleship';
         battleshipCount = 10;
     }
     if(carrierCount === 5 ){
-        infoDisplay.innerHTML = 'You\'ve sunk the computers carrier';
+        infoDisplay.innerHTML = 'You\'ve sunk the computers Carrier';
         carrierCount = 10;
     }
     if(cpuDestroyerCount === 2 ){
-        infoDisplay.innerHTML = 'The computer sunk your destroyer';
+        infoDisplay.innerHTML = 'The computer sunk your Destroyer';
         cpuDestroyerCount = 10;
     }
     if(cpuSubmarineCount === 3 ){
-        infoDisplay.innerHTML = 'The computer sunk your submarine';
+        infoDisplay.innerHTML = 'The computer sunk your Submarine';
         cpuSubmarineCount = 10;
     }
     if(cpuCruiserCount === 3 ){
-        infoDisplay.innerHTML = 'The computer sunk your cruiser';
+        infoDisplay.innerHTML = 'The computer sunk your Cruiser';
         cpuCruiserCount = 10;
     }
     if(cpuBattleshipCount === 4 ){
-        infoDisplay.innerHTML = 'The computer sunk your battleship';
+        infoDisplay.innerHTML = 'The computer sunk your Battleship';
         cpuBattleshipCount = 10;
     }
     if(cpuCarrierCount === 5 ){
-        infoDisplay.innerHTML = 'The computer sunk your carrier';
+        infoDisplay.innerHTML = 'The computer sunk your Carrier';
         cpuCarrierCount = 10;
     }
     if(destroyerCount + submarineCount + cruiserCount + battleshipCount + carrierCount === 50){
         infoDisplay.innerHTML = 'YOU WIN';
+        turnDisplay.style.display = 'none';
         endGame();
     }
     if(cpuDestroyerCount + cpuSubmarineCount + cpuCruiserCount + cpuBattleshipCount + cpuCarrierCount === 50){
         infoDisplay.innerHTML = 'COMPUTER WINS';
+        turnDisplay.style.display = 'none';
+
         endGame();
     }
 }
@@ -343,15 +347,16 @@ function endGame() {
 
 function playGame() {
     setUpButtons.style.display = 'none';
+    shipsId.style.display = 'none';
     if(isGameOver) return;
     if (currentPlayer === 'user'){
-        turnDisplay.innerHTML = 'Your Turn';
+        turnDisplay.innerHTML = 'Your Turn <br> Choose A Cooridinate To Attack In Enemy Waters';
         computerSquares.forEach(square => square.addEventListener('click',function(e) {
             revealSquare(square)
         } ))
     }
     if (currentPlayer === 'computer'){
-        turnDisplay.innerHTML = 'Computers Turn'
+        turnDisplay.innerHTML = 'Computers Turn <br> Brace Yourself'
         setTimeout (computerGo, 1000);
     }
     checkWins();

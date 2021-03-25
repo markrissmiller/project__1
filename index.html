@@ -25,15 +25,7 @@
         </div>
     </div>
 
-    <div class='container hidden-info'>   
-        <div id = 'setup-buttons'>
-            <button id='start' class='btn'>Start Game</button>
-            <button id='rotate' class='btn'>Rotate Your Ships</button>
-        </div>
-        <h3 id='whose-turn' class='info-text'>▼ Place Your Ships In Friendly Waters ▼<br>Then Press Start Game</h3>
-        <h3 id='info' class='info-text'></h3>
-    </div>
-
+    <h3 class='info-text' id='shipID'>▼Your Ships▼</h3>
     <div class='container'>
         <div class='grid-display'>
             <div class='ship destroyer-container' draggable='true'><div id='destroyer-0' class='start'></div><div id='destroyer-1' class='end'></div></div>
@@ -43,6 +35,17 @@
             <div class='ship carrier-container' draggable='true'><div id='carrier-0' class='start'></div><div id='carrier-1'></div><div id='carrier-2'></div><div id='carrier-3'></div><div id='carrier-4' class='end'></div></div>
         </div>
     </div>  
+
+    <div class='container hidden-info'>   
+        <h3 id='info' class='info-text'></h3>
+        <h3 id='whose-turn' class='info-text'>Drag And Drop Your Ships Into Friendly Waters<br>Then Press Start Game</h3>
+        <div id = 'setup-buttons'>
+            <button id='start' class='btn'>Start Game</button>
+            <button id='rotate' class='btn'>Rotate Your Ships</button>
+        </div>
+    </div>
+
+    
     <div class='reset-button'>
         <button id='reset' class='btn'>RESET</button>
     </div>

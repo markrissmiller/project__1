@@ -73,11 +73,11 @@ body{
 }
 
 .user-board{
-  margin-right: 80px;
+  margin-right: 82px;
 }
 
 .computer-board{
-  margin-left: 80px;
+  margin-left: 82px;
 }
 
 .grid-user{
@@ -101,7 +101,8 @@ body{
 }
 
 .grid-computer > .taken{
-  background-color: rgb(72, 175, 235)!important;
+  background-color: rgb(72, 175, 235)/*imortant!*/;
+
 }
 
 .grid-display{
@@ -281,6 +282,7 @@ body{
 .taken, .ship {
   background-color: rgb(189, 184, 184);
   position: relative;
+  
 }
 
 .taken.start.verticle, .taken.start.verticle::before{
