@@ -175,8 +175,8 @@ function dragLeave(e) {
 function dragDrop(){
     let shipNameWithLastId = draggedShip.lastChild.id;
     let shipClass = shipNameWithLastId.slice(0,-2);
-    console.log(shipClass);
-    console.log(shipNameWithLastId);
+    //console.log(shipClass);
+    // console.log(shipNameWithLastId);
     let lastShipIndex = parseInt(shipNameWithLastId.substr(-1));
     let shipLastId = lastShipIndex + parseInt(this.dataset.id);
     console.log(shipLastId);
@@ -262,7 +262,7 @@ function revealSquare(square){
 function computerGo() {
     const random = Math.floor(Math.random() * userSquares.length);
     if (!userSquares[random].classList.contains('boom') && !userSquares[random].classList.contains('miss')){
-        // userSquares[random].classList.add('boom')
+        // userSquares[random].classList.add('boom') 
         if(userSquares[random].classList.contains('destroyer')) cpuDestroyerCount++;
         if(userSquares[random].classList.contains('submarine')) cpuSubmarineCount++;
         if(userSquares[random].classList.contains('cruiser')) cpuCruiserCount++;
