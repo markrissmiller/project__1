@@ -57,9 +57,10 @@ body{
   /* background: rgb(2,0,36);
   background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(14,255,0,1) 61%, rgba(9,9,121,1) 99%); */
   height: 100vh;
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat; */
   background-size: 100%;
- 
+  background-position:-6px ;
+  
 }
 
 .container{
@@ -72,9 +73,17 @@ body{
   display: flex;
   justify-content: center;
   width: 100%;
-  margin-top: 100px;
+  /* justify-content: space-around; */
+  /* margin-top: 24px; */
 }
 
+.user-board{
+  margin-right: 80px;
+}
+
+.computer-board{
+  margin-left: 80px;
+}
 
 .grid-user{
   width: 400px;
@@ -83,7 +92,7 @@ body{
   flex-wrap: wrap;
   background-color: rgb(72, 175, 235);
   margin: 20px;
-  margin-right: 200PX;
+  /* margin-right: 200PX; */
 }
 
 .grid-computer{
@@ -93,7 +102,7 @@ body{
   flex-wrap: wrap;
   background-color: rgb(72, 175, 235);
   margin: 20px;
-  margin-left: 20PX;
+  /* margin-left: PX; */
 }
 
 .grid-computer > .taken{
@@ -111,16 +120,25 @@ body{
   border: 1px solid rgba(104, 250, 75, 0.521) ;
 }
 
+.grid-title{
+  font-family: 'New Tegomin', serif;
+  color: white;
+  text-shadow: 0px 0px 14px #5ef770;
+}
+
 .btn{
-  background-color: rgb(188, 238, 102);
+  background-color: rgb(94, 247, 111);
   padding: .5em 1em;
   border-radius: 2em;
-  color: rgb(177, 158, 136);
+  color: black;
   font-size: inherit;
+  font-family: 'New Tegomin', serif;
+  /* text-shadow: 0px 0px 4px white; */
 }
 
 .btn:hover, .btn:focus{
-  background-color: rgb(58, 73, 32);
+  background-color: rgb(69, 182, 82);
+  
 }
 
 .hidden-info{
@@ -132,6 +150,23 @@ body{
 .info-text{
   margin: 1rem;
   color: white;
+  text-shadow: 0px 0px 14px #5ef770;
+  font-family: 'New Tegomin', serif;
+  text-align: center;
+}
+
+.grid-title{
+  text-align: center;
+}
+
+.title{
+  text-align: center;
+  margin: 0;
+  font-family:  'Staatliches', cursive;
+  font-size: 50px;
+  letter-spacing: 3px;
+  /* color: white; */
+  text-shadow: 0px 0px 14px #5ef770;
 }
 
 /* SHIPS */
