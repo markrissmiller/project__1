@@ -1,5 +1,5 @@
 # Battleship
-A take on the classic table top gameboard. This is my first project with General Assembly and my first true project as a programmer. 
+A take on the classic table top boardgame. This is my first project with General Assembly and my first true project as a programmer. 
 
 
 ## Project Link
